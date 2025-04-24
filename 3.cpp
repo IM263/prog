@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-
+#include <algorithm>
 
 
 class BaseThing {
@@ -96,11 +96,21 @@ public:
             thing->thingInfo();
         }
     }
-    void dellthing() {
-        
+    void dellthing(int del) {
+        it = storage.begin();
+        it = storage.end();
+        std::remove_if(storage.begin(), storage.end(), [=](int i){
+        if(i == del)
+            return true;
+        else
+            return false;
+        });
     }
+    
+
 private:
     std::vector<BaseThing*> storage;
+    std::vector<BaseThing*>::iterator it;
 protected:
 
 };
@@ -140,7 +150,11 @@ int main() {
             Shelf.showThingList();
             break;
         case 3:
-
+            std::cout << "какой предмет по номеру вы хотите удалить?" << std::endl;
+            Shelf.showThingList();
+            int del;
+            std::cin >> del;
+            Shelf.dellthing(del);
             break;
         }
     }
