@@ -14,8 +14,8 @@ protected:
 
 }
 void task_1();
-task_2();
-task_3();
+void task_2();
+void task_3();
 class Plane{
 public:
 
