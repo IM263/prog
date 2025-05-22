@@ -7,7 +7,7 @@ int main(){
     int count_quantity = 0;
     std::cin>>num_pass;
     Luggage** arr = new Luggage*[num_pass];
-    for(int i;i<num_pass;i++){
+    for(int i=0;i<num_pass;i++){
         int quantity;
         int mass;
         std::cout<<"enter quantity"<<std::endl;
